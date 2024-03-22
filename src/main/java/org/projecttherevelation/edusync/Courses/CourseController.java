@@ -23,11 +23,11 @@ public class CourseController {
         System.out.println("deleted");
     }
     @GetMapping("/findAllCourses")
-    public List<CoursesModel> getAllCourse(CoursesModel coursesModel){
+    public List<CoursesModel> getAllCourse(){
         return courseService.findAll();
     }
-    @GetMapping("/getCourse")
-    public Optional<CoursesModel>getCourse(Long Id){
-     return    courseService.findById(Id);
+    @GetMapping("/getCourse/{id}")
+    public Optional<CoursesModel>getCourse(@PathVariable Long id){
+     return    courseService.findById(id);
     }
 }
