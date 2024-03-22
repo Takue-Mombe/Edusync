@@ -1,4 +1,8 @@
 package org.projecttherevelation.edusync.Lecturers;
 
-public interface LecturerRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LecturerRepo extends JpaRepository<LecturerModel,Long> {
 }
