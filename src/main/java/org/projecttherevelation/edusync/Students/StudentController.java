@@ -15,9 +15,8 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/save")
-    public String saveStudent(StudentModel studentModel){
-        studentService.saveStudents(studentModel);
-        return "save...";
+    public StudentModel saveStudent(StudentModel studentModel){
+      return   studentService.saveStudents(studentModel);
     }
     @DeleteMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id){
