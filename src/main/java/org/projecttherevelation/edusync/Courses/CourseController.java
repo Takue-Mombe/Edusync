@@ -15,7 +15,9 @@ public class CourseController {
 
     @PostMapping("/save")
     public CoursesModel saveCoursesModel(@RequestBody CoursesModel coursesModel){
-        return  courseService.saveCourses(coursesModel);
+        CoursesModel createCourse = courseService.saveCourses(coursesModel);
+        System.out.println("Event created successfully with ID: " + createCourse.getCourseId());
+        return createCourse;
     }
     @DeleteMapping("/delete/{id}")
     public void deleteCourse(@PathVariable Long id){

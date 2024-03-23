@@ -12,4 +12,35 @@ public class ProgrammeModel {
     @Column private String Department;
     @Column private String Chairperson;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getProgrammeName() {
+        return ProgrammeName;
+    }
+
+    public void setProgrammeName(String programmeName) {
+        ProgrammeName = programmeName;
+    }
+
+    public String getDepartment() {
+        return Department;
+    }
+
+    public void setDepartment(String department) {
+        Department = department;
+    }
+
+    public String getChairperson() {
+        return Chairperson;
+    }
+
+    public void setChairperson(String chairperson) {
+        Chairperson = chairperson;
+    }
 }

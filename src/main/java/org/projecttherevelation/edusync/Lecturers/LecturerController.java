@@ -1,6 +1,7 @@
 package org.projecttherevelation.edusync.Lecturers;
 
 
+import org.projecttherevelation.edusync.Courses.CoursesModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,10 @@ public class LecturerController {
 
     @PostMapping("/save")
     public LecturerModel saveLecturer(@RequestBody LecturerModel lecturerModel){
-     return lecturerService.saveLecturer(lecturerModel);
+        LecturerModel createLecturer=lecturerService.saveLecturer(lecturerModel);
+
+        System.out.println("Event created successfully with ID: " + createLecturer.getLecturerId());
+        return createLecturer;
     }
     @DeleteMapping("/delete/{id}")
     public String deleteLecturer(@PathVariable Long id){
