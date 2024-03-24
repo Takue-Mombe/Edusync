@@ -2,28 +2,31 @@ package org.projecttherevelation.edusync.users;
 
 
 import org.projecttherevelation.edusync.Students.StudentModel;
+import org.projecttherevelation.edusync.Students.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
-
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepo userRepo;
-    StudentModel studentModel = new StudentModel();
+    private final UserRepo userRepo;
+    private final StudentRepo studentRepo;
 
-    public String saveUser(UserModel userModel) {
-        String trial = studentModel.getHitMail();
-        if (Objects.equals(trial, userModel.getHitMail())) {
-            UserModel saveModel=userRepo.save(userModel);
+    public UserService(UserRepo userRepo, StudentRepo studentRepo) {
+        this.userRepo = userRepo;
+        this.studentRepo = studentRepo;
+    }
 
-            return "matched..."+saveModel;
+    public UserModel saveUser(UserModel userModel) {
+        String hitMail = userModel.getHitMail();
+        if (studentRepo.existsByHitMail(hitMail)) {
+            // Profile already exists, return null or throw an exception
+            return null;
         } else {
-            return "not found";
-
+            // Profile doesn't exist, proceed with saving
+            UserModel savedUser = userRepo.save(userModel);
+            return savedUser;
         }
-
     }
 }

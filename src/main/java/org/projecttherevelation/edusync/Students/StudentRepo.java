@@ -8,4 +8,5 @@ import java.util.Optional;
 @Repository
 public interface StudentRepo extends JpaRepository<StudentModel,Long> {
     Optional<StudentModel>findByHitMail(String hitMail);
+    boolean existsByHitMail(String hitMail);
 }
