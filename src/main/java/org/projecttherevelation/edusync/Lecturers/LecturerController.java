@@ -16,8 +16,7 @@ public class LecturerController {
     @PostMapping("/save")
     public LecturerModel saveLecturer(@RequestBody LecturerModel lecturerModel){
         LecturerModel createLecturer=lecturerService.saveLecturer(lecturerModel);
-
-        System.out.println("Event created successfully with ID: " + createLecturer.getLecturerId());
+        System.out.println("Lecturer created successfully with ID: " + createLecturer.getLecturerId());
         return createLecturer;
     }
     @DeleteMapping("/delete/{id}")
