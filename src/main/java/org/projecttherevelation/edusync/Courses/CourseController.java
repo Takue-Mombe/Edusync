@@ -1,35 +1,52 @@
 package org.projecttherevelation.edusync.Courses;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api")
+@Controller
+@RequestMapping("/courses")
 public class CourseController {
 
     @Autowired
     private CourseService courseService;
 
     @PostMapping("/save")
-    public CoursesModel saveCoursesModel(@RequestBody CoursesModel coursesModel){
+    public String saveCoursesModel(@ModelAttribute("coursesModel") CoursesModel coursesModel){
         CoursesModel createCourse = courseService.saveCourses(coursesModel);
         System.out.println("Event created successfully with ID: " + createCourse.getCourseId());
-        return createCourse;
+        return "redirect:/courses/all";
     }
+
     @DeleteMapping("/delete/{id}")
-    public void deleteCourse(@PathVariable Long id){
+    public String deleteCourse(@PathVariable Long id){
         courseService.deleteById(id);
         System.out.println("deleted");
+        return "redirect:/courses/all";
     }
-    @GetMapping("/findAllCourses")
-    public List<CoursesModel> getAllCourse(){
+
+    @GetMapping("/findAll")
+    public List<CoursesModel>getCourses(){
         return courseService.findAll();
     }
+
+    @GetMapping("/all")
+    public String getAllCourse(Model model){
+        List<CoursesModel> courses = courseService.findAll();
+        model.addAttribute("courses", courses);
+        return "courses-list";
+    }
+
     @GetMapping("/getCourse/{id}")
-    public Optional<CoursesModel>getCourse(@PathVariable Long id){
-     return    courseService.findById(id);
+    public String getCourse(@PathVariable Long id, Model model){
+        Optional<CoursesModel> course = courseService.findById(id);
+        if (course.isPresent()) {
+            model.addAttribute("course", course.get());
+        }
+        return "course-details";
     }
 }

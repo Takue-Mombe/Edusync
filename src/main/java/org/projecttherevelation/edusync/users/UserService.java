@@ -6,6 +6,7 @@ import org.projecttherevelation.edusync.Students.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Objects;
 @Service
 public class UserService {
@@ -21,12 +22,16 @@ public class UserService {
     public UserModel saveUser(UserModel userModel) {
         String hitMail = userModel.getHitMail();
         if (studentRepo.existsByHitMail(hitMail)) {
-            // Profile already exists, return null or throw an exception
-            return null;
-        } else {
-            // Profile doesn't exist, proceed with saving
+            // Profile already exists, then you can save
             UserModel savedUser = userRepo.save(userModel);
             return savedUser;
+
+        } else {
+            // Profile doesn't exist, do not save
+            return null;
         }
+    }
+    public List<UserModel> getUser(){
+        return userRepo.findAll();
     }
 }

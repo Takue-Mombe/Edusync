@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+</head>
+<body>
+
+<div class="courselist" th:unless="${courses.isEmpty()}">
+    <h2 th:text="#{title.list}">List of Courses</h2>
+    <table border="1">
+
+        <thead>
+        <tr>
+            <th th:text="#{courses.id}">ID</th>
+            <th th:text="#{courses.courseId}">Course ID</th>
+            <th th:text="#{courses.courseName}">Course Name</th>
+            <th th:text="#{courses.department}">Department</th>
+            <th th:text="#{courses.programme}">Programme</th>
+            <th th:text="#{courses.lecturerId}">Lecturer ID</th>
+            <th th:text="#{courses.numberOfStudents}">Number of Students</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.id}">1</td>
+            <td th:text="${course.courseId}">C001</td>
+            <td th:text="${course.courseName}">Introduction to Programming</td>
+            <td th:text="${course.department}">Computer Science</td>
+            <td th:text="${course.programme}">Bachelor of Science</td>
+            <td th:text="${course.lecturerId}">L001</td>
+            <td th:text="${course.numberOfStudents}">50</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
