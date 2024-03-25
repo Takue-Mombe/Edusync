@@ -13,6 +13,7 @@ public class StudentService {
     @Autowired
     private StudentRepo studentRepo;
 
+
     public StudentModel saveStudents(StudentModel studentModel){
         return studentRepo.save(studentModel);
     }

@@ -80,6 +80,7 @@
             <td th:text="${student.address}"></td>
         </tr>
     </table>
+    <button type="button" th:action="@{StudentApi/saveCSV}">Upload Student CSV</button>
     <button type="button" onclick="openModal()">Add Student</button>
     <!-- Modal for adding student information -->
     <div id="myModal" class="modal">
