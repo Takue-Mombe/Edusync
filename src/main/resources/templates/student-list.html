@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+</head>
+<body>
+<div class="container">
+    <h2>List of Students</h2>
+    <table class="table" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Year Enrolled</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Status</th>
+            <th>Programme</th>
+            <th>Department</th>
+            <th>Date of Birth</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Next of Kin</th>
+            <th>Guardian Number</th>
+            <th>Address</th>
+        </tr>
+
+        <tr th:each="students:${students}">
+            <td th:text="${students.id}"></td>
+            <td th:text="${students.hitMail}"></td>
+            <td th:text="${students.yearEnrolled}"></td>
+            <td th:text="${students.firstName}"></td>
+            <td th:text="${students.Status}"></td>
+            <td th:text="${students.lastName}"></td>
+            <td th:text="${students.programme}"></td>
+            <td th:text="${students.department}"></td>
+            <td th:text="${students.dateOfBirth}"></td>
+            <td th:text="${students.phoneNumber}"></td>
+            <td th:text="${students.email}"></td>
+            <td th:text="${students.nextOfKin}"></td>
+            <td th:text="${students.GuardianNumber}"></td>
+            <td th:text="${students.Address}"></td>
+
+        </tr>
+    </table>
+    <button type="button" onclick="openModal()">Add Student</button>
+    <!-- Modal for adding student information -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form th:action="@{/StudentApi/save}" method="post">
+                <label for="hitMail">Hit Mail:</label>
+                <input type="text" id="hitMail" name="hitMail" required><br><br>
+
+                <label for="yearEnrolled">Year Enrolled:</label>
+                <input type="text" id="yearEnrolled" name="yearEnrolled" required><br><br>
+
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required><br><br>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required><br><br>
+
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" required><br><br>
+
+                <label for="programme">Programme:</label>
+                <input type="text" id="programme" name="programme" required><br><br>
+
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required><br><br>
+
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="text" id="dateOfBirth" name="dateOfBirth" required><br><br>
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required><br><br>
+
+                <label for="nextOfKin">Next of Kin:</label>
+                <input type="text" id="nextOfKin" name="nextOfKin" required><br><br>
+
+                <label for="guardianNumber">Guardian Number:</label>
+                <input type="text" id="guardianNumber" name="guardianNumber" required><br><br>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Open the modal when the "Add Student" button is clicked
+    function openModal() {
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    // Close the modal when the user clicks on the close button
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
