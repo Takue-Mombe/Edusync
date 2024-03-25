@@ -3,6 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Student List</title>
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -25,22 +63,21 @@
             <th>Address</th>
         </tr>
 
-        <tr th:each="students:${students}">
-            <td th:text="${students.id}"></td>
-            <td th:text="${students.hitMail}"></td>
-            <td th:text="${students.yearEnrolled}"></td>
-            <td th:text="${students.firstName}"></td>
-            <td th:text="${students.Status}"></td>
-            <td th:text="${students.lastName}"></td>
-            <td th:text="${students.programme}"></td>
-            <td th:text="${students.department}"></td>
-            <td th:text="${students.dateOfBirth}"></td>
-            <td th:text="${students.phoneNumber}"></td>
-            <td th:text="${students.email}"></td>
-            <td th:text="${students.nextOfKin}"></td>
-            <td th:text="${students.GuardianNumber}"></td>
-            <td th:text="${students.Address}"></td>
-
+        <tr th:each="student: ${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.hitMail}"></td>
+            <td th:text="${student.yearEnrolled}"></td>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.status}"></td>
+            <td th:text="${student.programme}"></td>
+            <td th:text="${student.department}"></td>
+            <td th:text="${student.dateOfBirth}"></td>
+            <td th:text="${student.phoneNumber}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.nextOfKin}"></td>
+            <td th:text="${student.guardianNumber}"></td>
+            <td th:text="${student.address}"></td>
         </tr>
     </table>
     <button type="button" onclick="openModal()">Add Student</button>

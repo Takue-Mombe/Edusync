@@ -18,12 +18,14 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+
     @PostMapping("/save")
-    public StudentModel saveStudent(@RequestBody StudentModel studentModel){
-        StudentModel createStudent=studentService.saveStudents(studentModel);
-        System.out.println("Student Created: "+createStudent.getHitMail());
-      return  createStudent;
+    public String saveStudent(@ModelAttribute StudentModel studentModel){
+        StudentModel createStudent = studentService.saveStudents(studentModel);
+        System.out.println("Student Created: " + createStudent.getHitMail());
+        return "redirect:/StudentApi/students/all"; // Redirect to the student list page after saving
     }
+
     @DeleteMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
