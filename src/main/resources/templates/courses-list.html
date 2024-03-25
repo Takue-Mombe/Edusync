@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Course List</title>
+    <link rel="stylesheet" type="text/css" href="/templates/CSS/style.css">
+
 </head>
 <body>
 
-<div class="courselist" th:unless="${courses.isEmpty()}">
-    <h2 th:text="#{title.list}">List of Courses</h2>
-    <table border="1">
-
-        <thead>
+<div class="container">
+    <h2>List of Courses</h2>
+    <table class="table" border="1">
         <tr>
-            <th th:text="#{courses.id}">ID</th>
-            <th th:text="#{courses.courseId}">Course ID</th>
-            <th th:text="#{courses.courseName}">Course Name</th>
-            <th th:text="#{courses.department}">Department</th>
-            <th th:text="#{courses.programme}">Programme</th>
-            <th th:text="#{courses.lecturerId}">Lecturer ID</th>
-            <th th:text="#{courses.numberOfStudents}">Number of Students</th>
+            <th>ID</th>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Department</th>
+            <th>Programme</th>
+            <th>Lecturer ID</th>
+            <th>Number of Students</th>
+            <th>Action</th>
         </tr>
-        </thead>
-
-        <tbody>
         <tr th:each="course : ${courses}">
-            <td th:text="${course.id}">1</td>
-            <td th:text="${course.courseId}">C001</td>
-            <td th:text="${course.courseName}">Introduction to Programming</td>
-            <td th:text="${course.department}">Computer Science</td>
-            <td th:text="${course.programme}">Bachelor of Science</td>
-            <td th:text="${course.lecturerId}">L001</td>
-            <td th:text="${course.numberOfStudents}">50</td>
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.courseId}"></td>
+            <td th:text="${course.courseName}"></td>
+            <td th:text="${course.department}"></td>
+            <td th:text="${course.programme}"></td>
+            <td th:text="${course.lecturerId}"></td>
+            <td th:text="${course.numberOfStudents}"></td>
+            <td>
+                <a th:href="@{'/courses/edit/' + ${course.id}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                <a th:href="@{'/courses/delete/' + ${course.id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            </td>
         </tr>
-        </tbody>
     </table>
+    <button type="submit">Add Course</button>
 </div>
 
+<script src="/templates/JS/script.js"></script>
 </body>
 </html>
