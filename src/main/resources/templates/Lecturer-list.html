@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecturer List</title>
+</head>
+<body>
+<div class="container">
+    <h2>List of Lecturers</h2>
+    <table class="table" border="1">
+    <tr>
+        <th>Lecturer Id</th>
+        <th>Lecturer Name</th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Department</th>
+        <th>Hire Date</th>
+        <th>Highest Degree</th>
+    </tr>
+        <tr th:each="lecturers: ${lecturers}">
+            <td th:text="${lecturers.lecturerId}"></td>
+            <td th:text="${lecturers.lecturerName}"></td>
+            <td th:text="${lecturers.dateOfBirth}"></td>
+            <td th:text="${lecturers.email}"></td>
+            <td th:text="${lecturers.phoneNumber}"></td>
+            <td th:text="${lecturers.address}"></td>
+            <td th:text="${lecturers.department}"></td>
+            <td th:text="${lecturers.hireDate}"></td>
+            <td th:text="${lecturers.highestDegree}"></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
