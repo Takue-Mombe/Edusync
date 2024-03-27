@@ -13,16 +13,18 @@ import java.util.List;
 @Controller
 @RequestMapping("/userApi")
 public class UserController {
-    @Autowired
+    @Autowired(required = true)
     private UserService userService;
-    @PostMapping("/saveUser")
-    public UserModel  saveUser(@RequestBody UserModel userModel){
-    UserModel createUser=userService.saveUser(userModel);
-    System.out.println("User created: "+createUser.getUsername());
-    return createUser;
+
+    @PostMapping("/register")
+    public UserModel registerUser(@RequestBody UserModel user) {
+        UserModel registeredUser = userService.saveUser(user);
+        System.out.println("User registered successfully with username: " + registeredUser.getHitMail());
+        return registeredUser;
     }
-    @GetMapping("/getUsers")
-    public List<UserModel>getUsers(){
-        return userService.getUser();
+
+    @GetMapping("/login")
+    public String loginUser() {
+        return "Login successful!";
     }
 }

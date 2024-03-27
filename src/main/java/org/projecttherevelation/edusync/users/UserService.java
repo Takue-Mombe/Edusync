@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -17,6 +19,9 @@ public class UserService {
     public UserService(UserRepo userRepo, StudentRepo studentRepo) {
         this.userRepo = userRepo;
         this.studentRepo = studentRepo;
+    }
+  public  Optional<UserModel>findByHitmail(String hitmail){
+        return userRepo.findByHitMail(hitmail);
     }
 
     public UserModel saveUser(UserModel userModel) {
