@@ -29,10 +29,6 @@ public class CourseController {
         return "redirect:/courses/all";
     }
 
-    @GetMapping("/findAll")
-    public List<CoursesModel>getCourses(){
-        return courseService.findAll();
-    }
 
     @GetMapping("/all")
     public String getAllCourse(Model model){

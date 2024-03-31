@@ -11,6 +11,7 @@ public class ProgrammeModel {
     private String ProgrammeName;
     @Column private String Department;
     @Column private String Chairperson;
+    @Column private int numberOfStudents;
 
     public Long getId() {
         return id;
