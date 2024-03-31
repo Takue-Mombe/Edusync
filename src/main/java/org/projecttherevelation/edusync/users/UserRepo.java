@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface UserRepo extends JpaRepository<UserModel,String> {
     Optional<UserModel> findByHitMail(String hitMail);
 
+    boolean existsByHitMail(String hitMail);
 }

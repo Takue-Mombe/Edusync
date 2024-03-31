@@ -14,9 +14,9 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-
 @Configuration
-public class userConfig {
+public class UserConfig {
+
     @Bean
     public UserDetailsService userDetailsService(UserService userService) {
         return (hitMail) -> (UserDetails) userService
