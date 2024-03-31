@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class UserModel {
 
     @Id
-      private String username;
+    private String username;
     @Column
     private String hitMail;
     @Column

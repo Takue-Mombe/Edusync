@@ -9,6 +9,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/userApi")
 public class UserController {
+    /*
     @Autowired
     private UserService userService;
 
@@ -22,5 +23,5 @@ public class UserController {
     @ResponseBody
     public String loginUser() {
         return "Login successful!";
-    }
+    }*/
 }

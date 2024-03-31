@@ -1,6 +1,6 @@
-/* Your CSS styles go here */
 .container {
-    margin: 20px;
+    width: 80%;
+    margin: auto;
 }
 
 .table {
@@ -8,38 +8,37 @@
     border-collapse: collapse;
 }
 
-.table th, .table td {
-    border: 1px solid #ddd;
+th, td {
     padding: 8px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.btn {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-container input[type=text] {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.search-container button {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 17px;
+    border: none;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-}
-
-.btn:hover {
-    background-color: #286090;
-    border-color: #204d74;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    width: 18%;
 }

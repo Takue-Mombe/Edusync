@@ -15,7 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
-public class UserConfig {
+public class userConfig {
+    /*
 
     @Bean
     public UserDetailsService userDetailsService(UserService userService) {
@@ -42,5 +43,5 @@ public class UserConfig {
                 .csrf(AbstractHttpConfigurer::disable); // Disable CSRF protection
 
         return http.build();
-    }
+    }*/
 }

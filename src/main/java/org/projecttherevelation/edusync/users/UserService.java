@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-
+/*
     private final UserRepo userRepo;
     private final StudentRepo studentRepo;
     private final PasswordEncoder passwordEncoder;
@@ -42,5 +42,5 @@ public class UserService {
 
     public List<UserModel> getUsers() {
         return userRepo.findAll();
-    }
+    }*/
 }
